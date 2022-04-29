@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: rama2947
+Build-Jdk: 17.0.2
+Implementation-Title: auth-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.beyontec.mdcp
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+

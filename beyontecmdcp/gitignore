@@ -1,0 +1,9 @@
+beyontecmdcp/auth-service/target/
+beyontecmdcp/auth-service/target/classes/
+beyontecmdcp/motorauthorityservice/target/
+beyontecmdcp/notificationservice/target/
+beyontecmdcp/InsuranceCompanyService/target/
+beyontecmdcp/discovery-service/target/
+beyontecmdcp/config-service/target/
+beyontecmdcp/gatewayservice/target/
+.project

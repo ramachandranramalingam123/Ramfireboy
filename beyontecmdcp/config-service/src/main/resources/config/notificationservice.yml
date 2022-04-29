@@ -1,0 +1,52 @@
+server:
+  port: 9006
+  servlet:
+    context-path: /notification
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9761/eureka/
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: assarrwanda20@gmail.com
+    password: Password@2020
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      debug: true
+
+management:
+  endpoints:
+    web.exposure.include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+sms:
+  host:
+    url: 
+  userId: 
+  password: 
+
+mailSenderId : assarrwanda20@gmail.com
+mailSenderName : Beyontec Suite
+mailingList: assarrwanda20@gmail.com
+smsUrl: https://10.162.205.4:7847/smsgateway/v1/sendSMS
+   
+logging:
+  file: /var/logs/notification/notificationservice.log
+  pattern:
+    console: '%d %-5level %logger : %msg%n'
+    file: '%d %-5level [%thread] %logger : %msg%n'
+  level:
+    org.springframework.web: ERROR
+    com.beyontec: INFO
+    org.hibernate: ERROR
+md5_iv: 1234567891234560
+md5_secretKey: 736478326487326

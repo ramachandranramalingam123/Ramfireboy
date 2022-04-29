@@ -1,0 +1,50 @@
+server:
+  port: 9050
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9761/eureka/
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+      corsConfigurations:
+      '[/**]':
+      allowedOrigins: "*"
+      allowedMethods:
+        - GET,PUT,POST,OPTIONS,DELETE
+      routes:
+        - id: motorauthorityservice
+          uri: http://localhost:9055
+          predicates:
+            - Path=/api/motorauthorityservice/**
+          filters:
+            - RewritePath=/api/motorauthorityservice/(?<segment>.*), /motorauthorityservice/$\{segment}
+        - id: auth-service
+          uri: http://localhost:8989
+          predicates:
+            - Path=/api/auth-service/**
+          filters:
+            - RewritePath=/api/auth-service/(?<segment>.*), /auth-service/$\{segment} 
+        - id: insurancecompanyservice
+          uri: http://localhost:9065
+          predicates:
+            - Path=/api/insurancecompanyservice/**
+          filters:
+            - RewritePath=/api/insurancecompanyservice/(?<segment>.*), /insurancecompanyservice/$\{segment}     
+            
+management:
+  endpoints:
+    web.exposure.include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+jackson:
+  serialization:
+    WRITE_DATES_AS_TIMESTAMPS: false
+    

@@ -1,0 +1,70 @@
+server:
+  port: 8989
+  servlet:
+    context-path: /auth-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9761/eureka/    
+
+
+spring:
+  datasource:
+    platform: mariadb
+    url: jdbc:mariadb:failover://localhost:3316/beyontecmdcp?autoReconnect=true
+    username: root
+    password: root
+    driverClassName: org.mariadb.jdbc.Driver
+    
+    timeBetweenEvictionRunsMillis: 1000
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+   # hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    
+security:
+   oauth2:
+      resource:
+         filter-order: 3
+   headers:
+     frame: false
+   oauth2-server:
+      user-id: BEY_OAuth2_Client
+      #password: XY7kmzoNzl100
+      password: aXPXn3EXqfh0hV6MIzCRWZMHFU2pikD3cXGF4TFX02eqN45L2BsX0wcxxVb1jGJgDRWqOggx768xdFxgFdKO4Ri7hdqkv8EuoznBvrxCEUlQqAGE5qonbg==
+   oauth2-server-url: http://localhost:8989/auth-service/oauth/token
+   refresh-token-url: http://localhost:9003/api/auth-service/oauth/check_token?
+   signing-key: MaYzkSjmkzPC57L
+   encoding-strength: 256
+   security-realm: BEYONTEC_CRA
+   jwt:
+      grant-type-password: password
+      grant-type-refresh_token: refresh_token
+      scope-read: read
+      scope-write: write
+      resource-ids: BEYResource
+      access:
+         token:
+            validity: 100000
+      refresh:
+         token:
+            validity: 150000    
+
+logging:
+  file: DMS.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -----> %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -----> %msg%n"
+  level:
+    org.springframework.web: ERROR
+    com.howtodoinjava: DEBUG
+    org.hibernate: ERROR
+    
+send_mail_url: http://localhost:9006/notification/sendMail
+send_sms_url: http://localhost:9006/notification/sendSMS

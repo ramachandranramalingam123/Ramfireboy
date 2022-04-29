@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>beyontec Alert</title>
+<style>
+
+    body, body * {
+      font-family: 'arial'; font-size: 14px;
+    }
+    
+    table {
+        border-collapse: collapse;
+    }
+    
+    table, tr, td {
+        border: none;
+    }
+    </style>
+</head>
+<body style="margin:0; padding:0; background:#f0f0f0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; background:#f0f0f0">
+  <tbody>
+    <tr>
+      <td height="50"></td>
+    </tr>
+    <tr>
+      <td><table width="470" border="0" cellspacing="0" cellpadding="0" style="width:470px; margin:0 auto" align="center">
+          <tbody>
+            <tr>
+              <td height="70" style="background:#d6cdcd" valign="middle" align="center"><img src='${companyLogo}' width="290" height="52" alt='${emailBaseUrl}'/></td>
+            </tr>
+            <tr>
+              <td style="background:#fff; border-bottom:4px solid #59b971; padding-top:50px; padding-bottom:75px"><table width="470" border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td width="45">&nbsp;</td>
+                      <td  width="380">
+                        <table width="380" border="0" cellspacing="0" cellpadding="0">
+                          <tbody>
+                           <tr><td>
+                            <table align="left" border="1" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>Dear {{firstName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>User created successfully, To login kindly use below credentials<br /><br />
+                                            Username: {{userName}}<br />
+                                            Password: {{password}}
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br />
+                                        <p>Please contact us @ info@beyontec.mdcp.com for any further queries. Please don’t reply to this email as this mailbox is not monitored.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="padding-top: 10px;">
+                                            Best Wishes,<br />
+                                            Beyontec MDCP Insurance Company
+                                            <br />
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                          <br/><br/>
+                           </td></tr>
+                           <tr><td>
+                           </td></tr>
+                         </tbody>
+                        </table>
+                        </td>
+                      <td  width="45">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr>
+      <td height="50"></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

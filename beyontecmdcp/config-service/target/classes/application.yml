@@ -1,0 +1,19 @@
+server:
+  port: 9088
+
+spring:
+  profiles:
+   active:  native
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+         native:
+          searchLocations: classpath:/config/
+
+management: 
+     security: 
+          enabled: false
+
+

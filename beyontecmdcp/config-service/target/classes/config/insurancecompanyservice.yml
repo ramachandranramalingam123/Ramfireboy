@@ -1,0 +1,46 @@
+server:
+  port: 9065
+  servlet:
+    context-path: /insurancecompanyservice
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9761/eureka/
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000000
+        readTimeout: 10000000
+
+spring:
+  datasource:
+    platform: mariadb
+    url: jdbc:mariadb:failover://localhost:3316/beyontecmdcp?autoReconnect=true
+    username: root
+    password: root
+    driverClassName: org.mariadb.jdbc.Driver
+    
+    timeBetweenEvictionRunsMillis: 1000
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+   # hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+security:
+   signing-key: MaYzkSjmkzPC57L
+   encoding-strength: 256
+   security-realm: BEYONTEC_CRA
+   jwt:
+      resource-ids: BEYResource   
+      
+       
+send_mail_url: http://localhost:9006/notification/sendMail
+send_sms_url: http://localhost:9006/notification/sendSMS   
